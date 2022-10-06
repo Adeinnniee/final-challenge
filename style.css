@@ -1,0 +1,466 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@700&display=swap');
+
+
+
+
+/* -------------------------- GLOBAL STYLES ------------------------------- */
+:root{
+    --nav-bg-color: #2E323F;
+    --sections-bg-color: #3B4050;
+    --texts-color1: #6F737F;
+    --texts-color2: #FFFFFF;
+    --headings-color: #A59678;
+    --border-color: #000000;
+    --oswald-font-family: 'Oswald', sans-serif;
+    --montserrat-font-family: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 75em;
+}
+
+img{
+    max-width: 100%;
+}
+
+
+
+/* ------------------------------ COMMON STYLES --------------------------------- */
+h1, #footer-title, p, #header-button, a, .box-sub-titles{
+    color: var(--texts-color2);
+}
+
+h1, #footer-title, #header-button, h3, h4, h5, a{
+    font-family: var(--oswald-font-family);
+}
+
+p{
+    font-family: var(--montserrat-font-family);
+}
+
+h3, h4, h5, #special{
+    color: var(--headings-color);
+}
+
+#header-button, a{
+    text-transform: uppercase;
+}
+
+#header-info, #header-button{
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+#navigation, .header-article, .section1, .section2, .section2-boxes{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-article, .section1, .section2, footer{
+    padding: 2rem;
+}
+
+.section1-infos, .section2-infos{
+    color: var(--sections-bg-color);
+}
+
+.header-article, .box-infos, footer{
+    background-color: var(--sections-bg-color);
+}
+
+.section1-infos, .box-sub-infos, a{
+    font-size: 1.125rem;
+}
+
+p{
+    line-height: 1.5rem;
+}
+
+button{
+    border: 0rem solid;
+}
+
+#header-button, #nav-button{
+    background-color: var(--headings-color);
+    border-radius: 5rem;
+}
+
+
+
+/* styling the header section */
+nav{
+    background-color: var(--nav-bg-color);
+    padding: 1.5rem;
+}
+
+#hamburger-icon{
+    display: none;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+#header-title{
+    font-size: clamp(2.5rem, 4vw, 5.625rem);
+    line-height: 3rem;
+}
+
+#header-button{
+    padding: 0.4rem 1.5rem;
+}
+
+
+
+/*styling the main section*/
+
+/* styling section 1 */
+.section1{
+    background-color: var(--texts-color1);
+}
+
+.section1-infos{
+    margin-top: 0.7rem;
+}
+
+h4{
+    font-size: 1.875rem;
+}
+
+
+/* styling section 2 */
+h3{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+.section2-boxes{
+    gap: 1.5rem;
+}
+
+.box-infos{
+    text-align: center;
+    padding: 1rem 1.5rem;
+}
+
+
+
+/* styling the footer section */
+#footer-title{
+    font-size: 2rem;
+    letter-spacing: 0.03rem;
+}
+
+.footer-infos{
+    margin-top: 2rem;
+}
+
+h5{
+    font-size: 1.3125rem;
+}
+
+.footer-sub-infos{
+    font-size: 1rem;
+}
+
+
+
+
+
+
+/* -------------------------------- MEDIA QUERIES ------------------------------- */
+
+@media(max-width: 43.75em){
+
+
+    /* --------------------- COMMON STYLES ---------------------- */
+    #sign-in, #nav-button{
+        display: inline-block;
+    }
+
+
+
+    /* styling the header section */
+    .nav-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    #navigation{
+        background-color: var(--nav-bg-color);
+        flex-direction: column;
+        inset: 4.5em 0 0 0;
+        align-items: center;
+        gap: 2rem;
+        z-index: 0;
+        transform: translateX(100%);
+        transition: 350ms ease-out;
+        position: fixed;
+        height: 70vh;
+    }
+
+    #sign-in{
+        padding-top: 2.5rem;
+    }
+
+    #nav-button{ 
+        padding: 0.4rem 1.5rem;
+    }
+
+    .mobile-toggle{
+        position: absolute;
+        background-color: transparent;
+        background-image: url(./imgs/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        z-index: 1;
+        height: 5rem;
+        width: 10%;
+        top: 1.7rem;
+        left: 2.1rem;
+    }
+
+    .mobile-toggle[aria-expanded= "true"]{
+        background-image: url(./imgs/icon-close.svg);
+    }
+
+    #navigation[data-visible = "true"]{
+        transform: translateX(0%);
+    }
+}
+
+
+
+
+
+@media(min-width: 43.75em){
+
+    /* ---------------------------- COMMON STYLES ----------------------------------- */
+    nav, .footer-details{
+        display: flex;
+    }
+
+    #navigation, .header-article, .section1{
+        flex-direction: row;
+    }
+
+    .section1, #footer-title{
+        text-align: center;
+    }
+
+    nav, .section1, .footer-details{
+        justify-content: space-between;
+    }
+
+    #navigation, .section1{
+        gap: 2rem;
+    }
+
+
+
+    /* styling the header section */
+    #navigation{
+        align-items: center;
+    }
+
+    .mobile-toggle{
+        display: none;
+    }
+
+    #nav-button{
+        padding: 0.3rem 1.3rem 0.2rem 1.3rem;
+        align-self: start;
+    }
+
+    .header-article{
+        gap: 1.5rem;
+    }
+
+
+
+    /*styling the main section*/
+
+    /* styling section 1 */
+    .section1{
+        padding: 4em;
+    }
+
+    .section1-infos{
+        margin-top: 1rem;
+    }
+
+
+    /* styling section 2 */
+    #img{
+        margin-top: 3.5rem;
+        margin-bottom: 1rem;
+    }
+    
+
+
+    /* styling the footer section */
+    footer{
+        padding: 4.4rem;
+    }
+
+    .footer-details{
+        gap: 3rem;
+    }
+}
+
+
+
+
+
+@media(min-width: 43.75em) and (max-width: 62.5em){
+
+    /* styling the header section */
+    nav{
+        padding: 1.5rem 3.9em 0.9rem 3.9em;
+    }
+
+    .header-article{
+        padding: 5rem 3.9rem;
+    }
+
+    #header-info{
+        margin-top: 4rem;
+        max-width: 60em;
+    }
+
+    #header-title{
+        max-width: 10em;
+    }
+
+
+
+    /*styling the main section*/
+
+    /*styling section 2 */
+    .section2{
+        padding: 4.4rem;
+    }
+
+    .section2-boxes{
+        margin-top: 1rem;
+        flex-direction: row;
+    }
+}
+
+
+
+
+
+@media(min-width: 62.5em){
+
+    /* stying the header section */
+    #header-title{
+        line-height: 5rem;
+    }
+
+    nav{
+        padding: 1rem 6em;
+    }
+
+    .header-article{
+        padding: 7rem 6rem;
+    }
+
+    #header-title{
+        max-width: 7em;
+        line-height: 3.5rem;
+    }
+
+    #header-info{
+        margin-top: 4rem;
+        max-width: 20em;
+        line-height: 2rem;
+    }
+
+
+
+    /*styling the main section*/
+
+    /* styling section 1 */
+    .section1{
+        padding: 6em;
+        gap: 3rem;
+    }
+
+
+    /* styling section 2 */
+    .section2{
+        padding: 6.4rem;
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
+    .section2-infos{
+        margin-top: 0.5rem;
+        line-height: 1.7rem;
+    }
+
+    .section2-boxes{
+        gap: 1rem;
+    }
+
+
+
+    /* styling the footer section */
+    footer{
+        padding: 4.4rem 6.5rem;
+    }
+
+    .footer-sub-infos{
+        max-width: 24em;
+    }
+}
+
+
+
+
+
+@media(min-width: 75em){
+
+    /* -------------------------- GLOBAL STYLE ------------------------------- */
+    .container{
+        margin: 5rem auto;
+        border: 0.1rem solid var(--border-color);
+    }
+
+
+
+    /* styling section 1 */
+    .section1{
+        padding: 6.5em;
+    }
+}
+
+
+
+
+
+@media(min-width:125em){
+
+    /* styling the header section */
+    .nav-section{
+        padding: 1.7em 6.5rem;
+    }
+
+    #header-title{
+        line-height: 5.5rem;
+    }
+}
